@@ -2,7 +2,7 @@
     <h1>Block: {{i}}</h1>
     <div *ngFor="let week of block.weeks; index as w" class="container">
         <h1>Week: {{w}}</h1>
-        <div *ngFor="let day of week.days; index as y" class="table-responsive">
+        <div *ngFor="let day of week.days; index as y" class="table-responsive" cdkDropList (cdkDropListDropped)="drop($event)">
             <h1>Day: {{day.date.toDateString()}}</h1>
             <table class="table">
                 <tr>
@@ -11,7 +11,7 @@
                     <th>Sets</th>
                     <th>Reps</th>
                 </tr>
-                <tr *ngFor="let ex of day.exercises; index as j" class="exercise-row">
+                <tr *ngFor="let ex of day.exercises; index as j" cdkDrag>{{ex}}>
                     <td>{{ex.exercise}}</td>
                     <td>{{ex.weight}}</td>
                     <td>{{ex.sets}}</td>
