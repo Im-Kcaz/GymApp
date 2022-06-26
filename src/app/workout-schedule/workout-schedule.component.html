@@ -1,0 +1,23 @@
+<div *ngFor="let block of exerciseBlocks; index as i">
+    <h1>Block: {{i}}</h1>
+    <div *ngFor="let week of block.weeks; index as w" class="container">
+        <h1>Week: {{w}}</h1>
+        <div *ngFor="let day of week.days; index as y" class="table-responsive">
+            <h1>Day: {{day.date.toDateString()}}</h1>
+            <table class="table">
+                <tr>
+                    <th>Exercise</th>
+                    <th>Weight</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                </tr>
+                <tr *ngFor="let ex of day.exercises; index as j" class="exercise-row">
+                    <td>{{ex.exercise}}</td>
+                    <td>{{ex.weight}}</td>
+                    <td>{{ex.sets}}</td>
+                    <td>{{ex.reps}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
