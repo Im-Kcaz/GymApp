@@ -9,7 +9,14 @@ interface IExercise {
     actualWeight?: number,
     rpe?: number,
     description?: string,
-    warmups?: IWarmup
+    warmups: IWarmup[],
+    name?: string,
+    targetWeight?: number,
+    targetReps?: number,
+    actualReps?: number,
+    targetRPE?: number,
+    actualRPE?: number,
+    pauseTime?: number
 }
 
 export default IExercise;

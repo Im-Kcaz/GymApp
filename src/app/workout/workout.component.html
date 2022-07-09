@@ -1,0 +1,34 @@
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+    <h1>{{formatDate()}}</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr scope="row">
+                <th scope="col">Exercise</th>
+                <th scope="col">Sets</th>
+                <th scope="col">Reps</th>
+                <th scope="col">Target Weight</th>
+                <th scope="col">Actual Weight</th>
+                <th scope="col">Target RPE</th>
+                <th scope="col">Actual RPE</th>
+                <th scope="col">Description</th>
+                <th scope="col">Pause Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let ex of workout.exercises; index as j" cdkDrag>
+                <td>{{ex.name}}</td>
+                <td>{{ex.sets}}</td>
+                <td>{{ex.reps}}</td>
+                <td>{{ex.targetWeight ?? 0}}</td>
+                <td>{{ex.actualWeight ?? 0}}</td>
+                <td>{{ex.targetRPE ?? 0}}</td>
+                <td>{{ex.actualRPE ?? 0}}</td>
+                <td>{{ex.description ?? "N/A"}}</td>
+                <td>{{ex.pauseTime}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="getExercises()">Get Exercises</button>
+    <button (click)="createExercise()">Create Exercises</button>
+
+</div>
